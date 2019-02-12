@@ -1,0 +1,257 @@
+/*custom font*/
+@import url(https://fonts.googleapis.com/css?family=Montserrat);
+
+/*basic reset*/
+* {margin: 0; padding: 0;}
+
+html {
+	height: 100%;
+	/*Image only BG fallback*/
+	
+	/*background*/
+	background-image:url('backgroundWeb.jpg');
+	background-size: cover;
+	background-repeat: repeat;
+}
+
+body {
+	font-family: 'montserrat', arial, verdana;
+}
+/*form styles*/
+#msform  {
+	width: 37%;
+	margin: 30px auto;
+	text-align: center;
+	position: relative;
+}
+#msform fieldset {
+	background: white;
+	border: 0 none;
+	border-radius: 3px;
+	box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4);
+	padding: 20px 30px;
+	box-sizing: border-box;
+	width: 80%;
+	margin: 0 10%;
+	
+	/*stacking fieldsets above each other*/
+	position: relative;
+}
+/*Hide all except first fieldset*/
+#msform fieldset:not(:first-of-type) {
+	display: none;
+}
+/*inputs*/
+#msform input, #msform textarea {
+	padding: 10px;
+	border: 1px solid #ccc;
+	border-radius: 3px;
+	margin-bottom: 10px;
+	width: 100%;
+	box-sizing: border-box;
+	font-family: 'montserrat';
+	color: #2C3E50;
+	font-size: 14px;
+}
+/*buttons*/
+#msform .action-button, input[type=submit] {
+	width: 100px;
+	background: #47aec3;
+	font-weight: bold;
+	color: white;
+	border: 0 none;
+	border-radius: 1px;
+	cursor: pointer;
+	padding: 10px 5px;
+	margin: 10px 5px;
+}
+#msform .action-button:hover, #msform .action-button:focus, input[type=submit] {
+	box-shadow: 0 0 0 2px white, 0 0 0 3px #47aec3;
+}
+/*headings*/
+.fs-title {
+	font-size: 15px;
+	text-transform: uppercase;
+	color: #2C3E50;
+	margin-bottom: 10px;
+}
+.fs-subtitle {
+	font-weight: normal;
+	font-size: 13px;
+	color: #666;
+	margin-bottom: 20px;
+}
+/*progressbar*/
+#progressbar {
+	margin-bottom: 30px;
+	overflow: hidden;
+	/*CSS counters to number the steps*/
+	counter-reset: step;
+}
+#progressbar li {
+	list-style-type: none;
+	color: white;
+	text-transform: uppercase;
+	font-size: 13px;
+	width: 33.33%;
+	float: left;
+	position: relative;
+}
+#progressbar li:before {
+	content: counter(step);
+	counter-increment: step;
+	width: 35px;
+	line-height: 30px;
+	display: block;
+	font-size: 10px;
+	color: white;
+	background: #b8aeae;
+	border-radius: 3px;
+	margin: 0 auto 5px auto;
+}
+/*progressbar connectors*/
+#progressbar li:after {
+	content: '';
+	width: 100%;
+	height: 2px;
+	background: lightgrey;
+	position: absolute;
+	left: -50%;
+	top: 13px;
+	z-index: -1; /*put it behind the numbers*/
+}
+#progressbar li:first-child:after {
+	/*connector not needed before the first step*/
+	content: none; 
+}
+/*marking active/completed steps green*/
+/*The number of the step and the connector before it = green*/
+#progressbar li.active:before,  #progressbar li.active:after{
+	background: #47aec3;
+	color: white;
+}
+
+
+nav {
+	display: flex;
+	padding: 15px 0 0 20px;
+}
+
+nav h2 {
+	color:#998c8c;
+	align-self: center;
+	margin-left:10px;
+	font-size: 20px;
+}
+.logo {
+	width:5%;
+	align-self: center;
+}
+
+h1 {
+	color:#47aec3;
+	text-align: center;
+	font-size: 30px;
+	
+	font-family: 'lato';
+	font-weight:600;	
+}
+
+p  {
+	font-size:13px;
+	padding-bottom:8px;
+	font-weight: 600;
+	color:#3a7986;
+	text-align: left;
+	font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+textarea {
+	margin-bottom:20px;
+}
+
+
+
+select {
+	padding: 10px;
+	border: 1px solid #ccc;
+	border-radius: 3px;
+	margin-bottom: 10px;
+	width: 100%;
+	box-sizing: border-box;
+	font-family: 'montserrat';
+	color: #2C3E50;
+	font-size: 14px;
+}
+
+.answerFormContainer {
+	width:100%;
+	text-align: center;
+}
+
+.thanksMessage {
+	width:40%;
+	background:white;
+	margin: auto;
+	margin-top:12%;
+	padding: 5% 2% 5% 2%;
+	border: 0 none;
+	border-radius: 3px;
+	box-shadow: 0 0 25px 1px rgba(0, 0, 0, 0.2);
+}
+
+.fab:hover {
+	color: #317886;
+}
+
+input[type=submit] {
+	width:28%;
+}
+
+/*MEDIA QUERIES*/
+
+@media all and (max-width:820px) {
+
+html {
+	background-image:url('backgroundMobile.jpg');
+}
+
+#msform  {
+	width: 95%;
+	margin: 24px auto;
+	text-align: center;
+	position: relative;
+}
+
+#msform .action-button, input[type=submit] {
+	width:100%;
+}
+
+h1 {
+	margin-top:30px;
+	font-size: 24px;
+}
+
+nav {
+	justify-content: center;
+}
+
+nav h2 {
+	font-size: 24px;
+}
+.logo {
+	width:10%;
+}
+
+.thanksMessage  {
+	width: 80%;
+	margin: 30% auto;
+	text-align: center;
+	position: relative;
+}
+
+#msform fieldset {
+	margin-bottom:40px;
+}
+
+}
